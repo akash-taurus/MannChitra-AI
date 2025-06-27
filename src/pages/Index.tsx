@@ -6,10 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Shield, Users, Clock, Activity, Heart } from "lucide-react";
-
-const Index = () => {
+import ChatBot from "@/components/ChatBot";
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
@@ -22,23 +23,41 @@ const Index = () => {
           <div className="hidden md:flex items-center space-x-6">
             <a
               href="#features"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Features
             </a>
             <a
               href="#about"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                alert("About section coming soon! Learn more about MannChitra's mission to support mental wellness.");
+              }}
             >
               About
             </a>
             <a
               href="#contact"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+              className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                alert("Contact us at: support@mannchitra.ai or call our 24/7 helpline: 1-800-WELLNESS");
+              }}
             >
               Contact
             </a>
-            <Button>Get Started</Button>
+            <Button
+              onClick={() => {
+                alert("Welcome to MannChitra! Starting your mental wellness journey...");
+              }}
+            >
+              Get Started
+            </Button>
           </div>
         </nav>
       </header>
@@ -69,7 +88,13 @@ const Index = () => {
               <Activity className="mr-2 h-5 w-5" />
               Start Assessment
             </Button>
-            <Button size="lg" variant="outline">
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => {
+                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Learn More
             </Button>
           </div>
@@ -167,7 +192,13 @@ const Index = () => {
             Join thousands of users who trust MannChitra for early mental health
             detection
           </p>
-          <Button size="lg" variant="secondary">
+          <Button
+            size="lg"
+            variant="secondary"
+            onClick={() => {
+              alert("Ready to begin your mental wellness journey? Let's start with a quick assessment!");
+            }}
+          >
             Get Started Now
           </Button>
         </div>
@@ -252,6 +283,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* AI Chatbot */}
+      <ChatBot />
     </div>
   );
 };
