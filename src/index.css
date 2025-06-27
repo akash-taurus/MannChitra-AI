@@ -2,66 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom fonts optimised for readability and mental wellness */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Calming colour palette for mental wellness */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 94%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+
+    /* Enhanced mental wellness colour variables */
+    --calm-blue: 210 100% 90%;
+    --soft-lavender: 270 50% 90%;
+    --gentle-mint: 150 30% 90%;
+    --warm-peach: 20 50% 90%;
+    --serene-sage: 120 20% 85%;
+
+    /* Sidebar colours */
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 215 16% 47%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 240 5.9% 90%;
-    --sidebar-ring: 240 5.9% 10%;
+    --sidebar-accent: 210 40% 94%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 94.1%;
-    --sidebar-primary-foreground: 240 5.9% 10%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 240 4.9% 83.9%;
+    /* Gentle dark mode for better sleep hygiene */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 70%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 16% 60%;
+    --accent: 222 47% 11%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 217 91% 70%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 215 16% 60%;
+    --sidebar-primary: 217 91% 70%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 47% 11%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 15%;
+    --sidebar-ring: 217 91% 70%;
   }
 }
 
@@ -69,7 +84,168 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family:
+      "Inter",
+      "Poppins",
+      system-ui,
+      -apple-system,
+      sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    /* Optimised for reading comfort and mental wellness */
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  /* Smooth animations for mental wellness */
+  * {
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Enhanced focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Calming gradient backgrounds */
+  .gradient-calm {
+    background: linear-gradient(
+      135deg,
+      hsl(210, 100%, 95%) 0%,
+      hsl(220, 50%, 95%) 25%,
+      hsl(240, 30%, 95%) 50%,
+      hsl(260, 50%, 95%) 75%,
+      hsl(280, 40%, 95%) 100%
+    );
+  }
+
+  .gradient-wellness {
+    background: linear-gradient(
+      135deg,
+      hsl(150, 30%, 90%) 0%,
+      hsl(180, 40%, 90%) 25%,
+      hsl(210, 50%, 90%) 50%,
+      hsl(240, 40%, 90%) 75%,
+      hsl(270, 30%, 90%) 100%
+    );
+  }
+
+  /* Improved scrollbar for mental wellness */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 hover:bg-muted-foreground/30;
+    border-radius: 4px;
+  }
+
+  /* Mental wellness optimised typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", "Inter", system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+
+  /* Calming animations */
+  @keyframes gentle-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes soft-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+
+  .animate-gentle-pulse {
+    animation: gentle-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-soft-bounce {
+    animation: soft-bounce 2s ease-in-out infinite;
+  }
+
+  /* Mental health colour utilities */
+  .bg-calm {
+    background-color: hsl(var(--calm-blue));
+  }
+  .bg-lavender {
+    background-color: hsl(var(--soft-lavender));
+  }
+  .bg-mint {
+    background-color: hsl(var(--gentle-mint));
+  }
+  .bg-peach {
+    background-color: hsl(var(--warm-peach));
+  }
+  .bg-sage {
+    background-color: hsl(var(--serene-sage));
+  }
+
+  /* Improved button hover states for mental wellness */
+  .btn-mental-wellness {
+    @apply transform transition-all duration-300 ease-out;
+  }
+
+  .btn-mental-wellness:hover {
+    @apply scale-105 shadow-lg;
+  }
+
+  .btn-mental-wellness:active {
+    @apply scale-95;
+  }
+
+  /* Card hover effects optimised for mental wellness */
+  .card-wellness {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-wellness:hover {
+    @apply shadow-xl -translate-y-1;
+  }
+}
+
+/* Accessibility improvements for mental health users */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles for mental health reports */
+@media print {
+  body {
+    @apply text-black bg-white;
+  }
+
+  .no-print {
+    display: none !important;
   }
 }
