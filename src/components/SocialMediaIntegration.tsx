@@ -15,7 +15,7 @@ import {
   Facebook,
   Linkedin,
   Youtube,
-  TikTok,
+  Video,
   Link,
   Shield,
   Eye,
@@ -64,7 +64,7 @@ const SocialMediaIntegration = () => {
     },
     {
       name: "TikTok",
-      icon: TikTok,
+      icon: Video,
       colour: "from-black to-gray-800",
       description: "Understand entertainment patterns and engagement",
       metrics: [
