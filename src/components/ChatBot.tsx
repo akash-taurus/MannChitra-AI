@@ -24,7 +24,7 @@ const ChatBot = () => {
       type: "quote",
     },
     {
-      id: "2", 
+      id: "2",
       text: "I'm here to support your mental wellness journey. How are you feeling today? Remember, I'm not just an AI - I'm your friend who wants to listen and help you track your emotions. 💙",
       sender: "bot",
       timestamp: new Date(),
@@ -47,16 +47,16 @@ const ChatBot = () => {
 
   // Enhanced mental health quotes and responses
   const mentalHealthQuotes = [
-    ""Your mental health is a priority. Your happiness is essential. Your self-care is a necessity." - Unknown",
-    ""You are not your illness. You have an individual story to tell." - Julian Seifter",
-    ""Mental health is not a destination, but a process." - Noam Shpancer",
-    ""Your current situation is not your final destination." - Unknown",
-    ""Healing takes time, and asking for help is a courageous step." - Mariska Hargitay",
-    ""You are stronger than you think and more resilient than you know." - Unknown",
-    ""Progress, not perfection, is the goal." - Unknown",
-    ""Self-compassion is simply giving the same kindness to ourselves that we would give to others." - Christopher Germer",
-    ""Mental health recovery is not about going back to where you were before. It's about moving forward to where you want to be." - Unknown",
-    ""You don't have to be positive all the time. It's perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious." - Lori Deschene",
+    "Your mental health is a priority. Your happiness is essential. Your self-care is a necessity. - Unknown",
+    "You are not your illness. You have an individual story to tell. - Julian Seifter",
+    "Mental health is not a destination, but a process. - Noam Shpancer",
+    "Your current situation is not your final destination. - Unknown",
+    "Healing takes time, and asking for help is a courageous step. - Mariska Hargitay",
+    "You are stronger than you think and more resilient than you know. - Unknown",
+    "Progress, not perfection, is the goal. - Unknown",
+    "Self-compassion is simply giving the same kindness to ourselves that we would give to others. - Christopher Germer",
+    "Mental health recovery is not about going back to where you were before. It's about moving forward to where you want to be. - Unknown",
+    "You don't have to be positive all the time. It's perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious. - Lori Deschene",
   ];
 
   const encouragements = [
@@ -87,7 +87,7 @@ const ChatBot = () => {
 
   const generateBotResponse = (userMessage: string): { text: string; type: "quote" | "encouragement" | "question" | "response" } => {
     const message = userMessage.toLowerCase();
-    
+
     // Check if user is expressing emotions
     if (message.includes("feel") || message.includes("feeling") || message.includes("emotion")) {
       if (Math.random() < 0.3) {
@@ -120,7 +120,7 @@ const ChatBot = () => {
         type: "response"
       };
     }
-    
+
     if (message.includes("anxious") || message.includes("anxiety") || message.includes("worry") || message.includes("nervous")) {
       const responses = [
         ""Anxiety is the dizziness of freedom." - Søren Kierkegaard. But remember, you have the power to ground yourself. 🌱",
@@ -132,7 +132,7 @@ const ChatBot = () => {
         type: "response"
       };
     }
-    
+
     if (message.includes("sad") || message.includes("depressed") || message.includes("down") || message.includes("low")) {
       const responses = [
         ""The darkest nights produce the brightest stars." Your feelings are valid, and this moment will pass. 🌟",
@@ -231,7 +231,7 @@ const ChatBot = () => {
         timestamp: new Date(),
         type: botResponseData.type,
       };
-      
+
       setMessages(prev => [...prev, botResponse]);
       setIsTyping(false);
     }, Math.random() * 1000 + 1500); // Variable delay for more natural feeling
@@ -305,10 +305,10 @@ const ChatBot = () => {
                 </div>
               </div>
             </CardHeader>
-            
+
             <CardContent className="p-0">
               {/* Messages */}
-              <div 
+              <div
                 ref={chatContainerRef}
                 className="h-96 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-blue-50/50 to-purple-50/50"
               >
@@ -325,7 +325,7 @@ const ChatBot = () => {
                         {getMessageIcon(message.type)}
                       </div>
                     )}
-                    
+
                     <div
                       className={cn(
                         "max-w-[75%] p-4 rounded-2xl shadow-md",
@@ -347,8 +347,8 @@ const ChatBot = () => {
                           {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </p>
                         {message.type && (
-                          <Badge 
-                            variant="secondary" 
+                          <Badge
+                            variant="secondary"
                             className={cn(
                               "text-xs",
                               message.type === "quote" && "bg-purple-200 text-purple-700",
@@ -361,7 +361,7 @@ const ChatBot = () => {
                         )}
                       </div>
                     </div>
-                    
+
                     {message.sender === "user" && (
                       <div className="p-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex-shrink-0 shadow-lg">
                         <User className="h-4 w-4 text-white" />
@@ -369,7 +369,7 @@ const ChatBot = () => {
                     )}
                   </div>
                 ))}
-                
+
                 {isTyping && (
                   <div className="flex gap-3 justify-start animate-in slide-in-from-bottom-2 duration-500">
                     <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg">
@@ -410,7 +410,7 @@ const ChatBot = () => {
                     <Send className="h-5 w-5" />
                   </Button>
                 </div>
-                
+
                 <div className="flex items-center justify-center mt-3 text-xs text-gray-600 space-x-6">
                   <div className="flex items-center space-x-1">
                     <Shield className="h-3 w-3 text-green-500" />
