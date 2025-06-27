@@ -58,7 +58,14 @@ const Index = () => {
             timely interventions and support.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <Button
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700"
+              onClick={() => {
+                // Navigate to assessment page or show modal
+                alert("Starting mental health assessment...");
+              }}
+            >
               <Activity className="mr-2 h-5 w-5" />
               Start Assessment
             </Button>
