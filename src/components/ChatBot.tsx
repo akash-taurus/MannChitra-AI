@@ -2,7 +2,18 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MessageCircle, X, Send, Bot, User, Heart, Shield, Clock, Sparkles, Brain } from "lucide-react";
+import {
+  MessageCircle,
+  X,
+  Send,
+  Bot,
+  User,
+  Heart,
+  Shield,
+  Clock,
+  Sparkles,
+  Brain,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -18,7 +29,7 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: ""Mental health is not a destination, but a process. It's about how you drive, not where you're going." - Noam Shpancer",
+      text: "Mental health is not a destination, but a process. It's about how you drive, not where you're going. - Noam Shpancer",
       sender: "bot",
       timestamp: new Date(),
       type: "quote",
@@ -85,103 +96,156 @@ const ChatBot = () => {
     "Rest and mental health go hand in hand. How are you prioritising sleep? 🛏️",
   ];
 
-  const generateBotResponse = (userMessage: string): { text: string; type: "quote" | "encouragement" | "question" | "response" } => {
+  const generateBotResponse = (
+    userMessage: string,
+  ): {
+    text: string;
+    type: "quote" | "encouragement" | "question" | "response";
+  } => {
     const message = userMessage.toLowerCase();
 
     // Check if user is expressing emotions
-    if (message.includes("feel") || message.includes("feeling") || message.includes("emotion")) {
+    if (
+      message.includes("feel") ||
+      message.includes("feeling") ||
+      message.includes("emotion")
+    ) {
       if (Math.random() < 0.3) {
         return {
-          text: mentalHealthQuotes[Math.floor(Math.random() * mentalHealthQuotes.length)],
-          type: "quote"
+          text: mentalHealthQuotes[
+            Math.floor(Math.random() * mentalHealthQuotes.length)
+          ],
+          type: "quote",
         };
       } else if (Math.random() < 0.5) {
         return {
-          text: moodTrackingPrompts[Math.floor(Math.random() * moodTrackingPrompts.length)],
-          type: "question"
+          text: moodTrackingPrompts[
+            Math.floor(Math.random() * moodTrackingPrompts.length)
+          ],
+          type: "question",
         };
       } else {
         return {
-          text: encouragements[Math.floor(Math.random() * encouragements.length)],
-          type: "encouragement"
+          text: encouragements[
+            Math.floor(Math.random() * encouragements.length)
+          ],
+          type: "encouragement",
         };
       }
     }
 
     // Specific emotional states
-    if (message.includes("stress") || message.includes("overwhelm") || message.includes("pressure")) {
+    if (
+      message.includes("stress") ||
+      message.includes("overwhelm") ||
+      message.includes("pressure")
+    ) {
       const responses = [
-        ""Stress is like a rocking chair. It gives you something to do but doesn't get you anywhere." Let's work through this together. 🤝",
+        "Stress is like a rocking chair. It gives you something to do but doesn't get you anywhere. Let's work through this together. 🤝",
         "I hear you're feeling stressed. Remember: you've overcome challenges before, and you can do it again. Have you tried logging this in your mood tracker? 💪",
         "Stress is your mind's way of saying you care. Let's channel that energy positively. How about some deep breathing? 🌬️",
       ];
       return {
         text: responses[Math.floor(Math.random() * responses.length)],
-        type: "response"
+        type: "response",
       };
     }
 
-    if (message.includes("anxious") || message.includes("anxiety") || message.includes("worry") || message.includes("nervous")) {
+    if (
+      message.includes("anxious") ||
+      message.includes("anxiety") ||
+      message.includes("worry") ||
+      message.includes("nervous")
+    ) {
       const responses = [
-        ""Anxiety is the dizziness of freedom." - Søren Kierkegaard. But remember, you have the power to ground yourself. 🌱",
+        "Anxiety is the dizziness of freedom. - Søren Kierkegaard. But remember, you have the power to ground yourself. 🌱",
         "Anxiety can feel overwhelming, but you're not alone in this. Try the 5-4-3-2-1 grounding technique: 5 things you see, 4 you touch, 3 you hear, 2 you smell, 1 you taste. 🔢",
         "Your anxiety is valid, but it doesn't define you. Each breath you take is a victory. Worth tracking this feeling? 💙",
       ];
       return {
         text: responses[Math.floor(Math.random() * responses.length)],
-        type: "response"
+        type: "response",
       };
     }
 
-    if (message.includes("sad") || message.includes("depressed") || message.includes("down") || message.includes("low")) {
+    if (
+      message.includes("sad") ||
+      message.includes("depressed") ||
+      message.includes("down") ||
+      message.includes("low")
+    ) {
       const responses = [
-        ""The darkest nights produce the brightest stars." Your feelings are valid, and this moment will pass. 🌟",
+        "The darkest nights produce the brightest stars. Your feelings are valid, and this moment will pass. 🌟",
         "It's okay to feel sad - emotions are like weather, they come and go. I'm here with you through this storm. ☁️→☀️",
         "Sadness shows that you care deeply about life. That's actually a beautiful thing, even when it hurts. Let's log this feeling? 💝",
       ];
       return {
         text: responses[Math.floor(Math.random() * responses.length)],
-        type: "response"
+        type: "response",
       };
     }
 
-    if (message.includes("good") || message.includes("great") || message.includes("happy") || message.includes("well") || message.includes("positive")) {
+    if (
+      message.includes("good") ||
+      message.includes("great") ||
+      message.includes("happy") ||
+      message.includes("well") ||
+      message.includes("positive")
+    ) {
       const responses = [
         "That's wonderful to hear! 🌈 Celebrating good moments is so important. What made today special? Consider logging this positive mood!",
-        ""Happiness is not something ready-made. It comes from your own actions." - Dalai Lama. You're creating your own sunshine! ☀️",
+        "Happiness is not something ready-made. It comes from your own actions. - Dalai Lama. You're creating your own sunshine! ☀️",
         "I love hearing about your good days! These moments matter just as much as the difficult ones. Track this feeling! ✨",
       ];
       return {
         text: responses[Math.floor(Math.random() * responses.length)],
-        type: "response"
+        type: "response",
       };
     }
 
-    if (message.includes("sleep") || message.includes("tired") || message.includes("exhausted")) {
+    if (
+      message.includes("sleep") ||
+      message.includes("tired") ||
+      message.includes("exhausted")
+    ) {
       return {
-        text: sleepAndWellnessPrompts[Math.floor(Math.random() * sleepAndWellnessPrompts.length)],
-        type: "question"
+        text: sleepAndWellnessPrompts[
+          Math.floor(Math.random() * sleepAndWellnessPrompts.length)
+        ],
+        type: "question",
       };
     }
 
-    if (message.includes("hello") || message.includes("hi") || message.includes("hey")) {
+    if (
+      message.includes("hello") ||
+      message.includes("hi") ||
+      message.includes("hey")
+    ) {
       return {
         text: "Hello, dear friend! 👋 I'm so glad you're here. Remember, I'm not just an AI - I'm someone who genuinely cares about your wellbeing. How can I support you today?",
-        type: "encouragement"
+        type: "encouragement",
       };
     }
 
-    if (message.includes("help") || message.includes("support") || message.includes("crisis")) {
+    if (
+      message.includes("help") ||
+      message.includes("support") ||
+      message.includes("crisis")
+    ) {
       return {
         text: "I'm here for you, always. 💚 If you're in crisis, please reach out to a mental health professional immediately. For ongoing support, let's use the mood tracker and other features to help monitor your wellbeing. You matter. 🤗",
-        type: "response"
+        type: "response",
       };
     }
 
-    if (message.includes("track") || message.includes("log") || message.includes("mood")) {
+    if (
+      message.includes("track") ||
+      message.includes("log") ||
+      message.includes("mood")
+    ) {
       return {
         text: "Brilliant idea! 📊 Tracking your emotions helps identify patterns and triggers. Head to your mood tracker to log this feeling - every entry helps build a clearer picture of your mental health journey! 🎯",
-        type: "question"
+        type: "question",
       };
     }
 
@@ -195,8 +259,10 @@ const ChatBot = () => {
     ];
 
     return {
-      text: generalResponses[Math.floor(Math.random() * generalResponses.length)],
-      type: "encouragement"
+      text: generalResponses[
+        Math.floor(Math.random() * generalResponses.length)
+      ],
+      type: "encouragement",
     };
   };
 
@@ -206,7 +272,7 @@ const ChatBot = () => {
     // Check message limit (100+ capacity)
     if (messages.length >= 200) {
       // Archive older messages but keep the chat functional
-      setMessages(prev => prev.slice(-100));
+      setMessages((prev) => prev.slice(-100));
     }
 
     const userMessage: Message = {
@@ -216,25 +282,28 @@ const ChatBot = () => {
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputText("");
     setIsTyping(true);
-    setMessageCount(prev => prev + 1);
+    setMessageCount((prev) => prev + 1);
 
     // Simulate AI thinking time
-    setTimeout(() => {
-      const botResponseData = generateBotResponse(inputText);
-      const botResponse: Message = {
-        id: (Date.now() + 1).toString(),
-        text: botResponseData.text,
-        sender: "bot",
-        timestamp: new Date(),
-        type: botResponseData.type,
-      };
+    setTimeout(
+      () => {
+        const botResponseData = generateBotResponse(inputText);
+        const botResponse: Message = {
+          id: (Date.now() + 1).toString(),
+          text: botResponseData.text,
+          sender: "bot",
+          timestamp: new Date(),
+          type: botResponseData.type,
+        };
 
-      setMessages(prev => [...prev, botResponse]);
-      setIsTyping(false);
-    }, Math.random() * 1000 + 1500); // Variable delay for more natural feeling
+        setMessages((prev) => [...prev, botResponse]);
+        setIsTyping(false);
+      },
+      Math.random() * 1000 + 1500,
+    ); // Variable delay for more natural feeling
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -293,15 +362,22 @@ const ChatBot = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">MannChitra AI</h3>
-                    <p className="text-sm text-blue-100">Your Mental Wellness Friend</p>
+                    <p className="text-sm text-blue-100">
+                      Your Mental Wellness Friend
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                  <Badge
+                    variant="secondary"
+                    className="bg-white/20 text-white border-white/30"
+                  >
                     <Heart className="h-3 w-3 mr-1 animate-pulse" />
                     Online
                   </Badge>
-                  <span className="text-xs text-blue-100">{messages.length}/200</span>
+                  <span className="text-xs text-blue-100">
+                    {messages.length}/200
+                  </span>
                 </div>
               </div>
             </CardHeader>
@@ -317,7 +393,9 @@ const ChatBot = () => {
                     key={message.id}
                     className={cn(
                       "flex gap-3 animate-in slide-in-from-bottom-2 duration-500",
-                      message.sender === "user" ? "justify-end" : "justify-start"
+                      message.sender === "user"
+                        ? "justify-end"
+                        : "justify-start",
                     )}
                   >
                     {message.sender === "bot" && (
@@ -332,28 +410,38 @@ const ChatBot = () => {
                         message.sender === "user"
                           ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-br-md"
                           : message.type === "quote"
-                          ? "bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-bl-md border-l-4 border-purple-400"
-                          : message.type === "encouragement"
-                          ? "bg-gradient-to-r from-green-100 to-teal-100 text-green-800 rounded-bl-md"
-                          : "bg-white text-gray-800 rounded-bl-md border border-gray-200"
+                            ? "bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-bl-md border-l-4 border-purple-400"
+                            : message.type === "encouragement"
+                              ? "bg-gradient-to-r from-green-100 to-teal-100 text-green-800 rounded-bl-md"
+                              : "bg-white text-gray-800 rounded-bl-md border border-gray-200",
                       )}
                     >
                       <p className="text-sm leading-relaxed">{message.text}</p>
                       <div className="flex items-center justify-between mt-2">
-                        <p className={cn(
-                          "text-xs",
-                          message.sender === "user" ? "text-blue-100" : "text-gray-500"
-                        )}>
-                          {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        <p
+                          className={cn(
+                            "text-xs",
+                            message.sender === "user"
+                              ? "text-blue-100"
+                              : "text-gray-500",
+                          )}
+                        >
+                          {message.timestamp.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </p>
                         {message.type && (
                           <Badge
                             variant="secondary"
                             className={cn(
                               "text-xs",
-                              message.type === "quote" && "bg-purple-200 text-purple-700",
-                              message.type === "encouragement" && "bg-green-200 text-green-700",
-                              message.type === "question" && "bg-blue-200 text-blue-700"
+                              message.type === "quote" &&
+                                "bg-purple-200 text-purple-700",
+                              message.type === "encouragement" &&
+                                "bg-green-200 text-green-700",
+                              message.type === "question" &&
+                                "bg-blue-200 text-blue-700",
                             )}
                           >
                             {message.type}
@@ -378,8 +466,14 @@ const ChatBot = () => {
                     <div className="bg-white p-4 rounded-2xl rounded-bl-md shadow-md border border-gray-200">
                       <div className="flex space-x-1">
                         <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
-                        <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                        <div
+                          className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "0.1s" }}
+                        ></div>
+                        <div
+                          className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "0.2s" }}
+                        ></div>
                       </div>
                     </div>
                   </div>
