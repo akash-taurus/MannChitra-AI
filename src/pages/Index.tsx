@@ -6,11 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Shield, Users, Clock, Activity, Heart } from "lucide-react";
 import ChatBot from "@/components/ChatBot";
+
+const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
@@ -26,7 +26,9 @@ import ChatBot from "@/components/ChatBot";
               className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                document
+                  .getElementById("features")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               Features
@@ -36,7 +38,9 @@ import ChatBot from "@/components/ChatBot";
               className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                alert("About section coming soon! Learn more about MannChitra's mission to support mental wellness.");
+                alert(
+                  "About section coming soon! Learn more about MannChitra's mission to support mental wellness.",
+                );
               }}
             >
               About
@@ -46,14 +50,18 @@ import ChatBot from "@/components/ChatBot";
               className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                alert("Contact us at: support@mannchitra.ai or call our 24/7 helpline: 1-800-WELLNESS");
+                alert(
+                  "Contact us at: support@mannchitra.ai or call our 24/7 helpline: 1-800-WELLNESS",
+                );
               }}
             >
               Contact
             </a>
             <Button
               onClick={() => {
-                alert("Welcome to MannChitra! Starting your mental wellness journey...");
+                alert(
+                  "Welcome to MannChitra! Starting your mental wellness journey...",
+                );
               }}
             >
               Get Started
@@ -81,7 +89,6 @@ import ChatBot from "@/components/ChatBot";
               size="lg"
               className="bg-blue-600 hover:bg-blue-700"
               onClick={() => {
-                // Navigate to assessment page or show modal
                 alert("Starting mental health assessment...");
               }}
             >
@@ -92,7 +99,9 @@ import ChatBot from "@/components/ChatBot";
               size="lg"
               variant="outline"
               onClick={() => {
-                document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                document
+                  .getElementById("features")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               Learn More
@@ -196,7 +205,9 @@ import ChatBot from "@/components/ChatBot";
             size="lg"
             variant="secondary"
             onClick={() => {
-              alert("Ready to begin your mental wellness journey? Let's start with a quick assessment!");
+              alert(
+                "Ready to begin your mental wellness journey? Let's start with a quick assessment!",
+              );
             }}
           >
             Get Started Now
@@ -221,17 +232,33 @@ import ChatBot from "@/components/ChatBot";
               <h3 className="text-lg font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() => alert("Features coming soon!")}
+                  >
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() => alert("Pricing plans available soon!")}
+                  >
                     Pricing
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() =>
+                      alert(
+                        "Your data is protected with enterprise-grade security.",
+                      )
+                    }
+                  >
                     Security
                   </a>
                 </li>
@@ -241,17 +268,39 @@ import ChatBot from "@/components/ChatBot";
               <h3 className="text-lg font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() =>
+                      alert(
+                        "Help Center: Visit support.mannchitra.ai for assistance",
+                      )
+                    }
+                  >
                     Help Center
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() =>
+                      alert("Contact: support@mannchitra.ai | 1-800-WELLNESS")
+                    }
+                  >
                     Contact
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() =>
+                      alert(
+                        "Privacy Policy: We prioritize your privacy and data protection.",
+                      )
+                    }
+                  >
                     Privacy
                   </a>
                 </li>
@@ -261,17 +310,41 @@ import ChatBot from "@/components/ChatBot";
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() =>
+                      alert(
+                        "About MannChitra: Pioneering AI-powered mental health solutions.",
+                      )
+                    }
+                  >
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() =>
+                      alert(
+                        "Blog: Stay updated with mental health insights and AI research.",
+                      )
+                    }
+                  >
                     Blog
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors cursor-pointer"
+                    onClick={() =>
+                      alert(
+                        "Careers: Join our mission to revolutionize mental healthcare!",
+                      )
+                    }
+                  >
                     Careers
                   </a>
                 </li>
