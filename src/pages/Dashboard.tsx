@@ -31,6 +31,7 @@ import MoodTracker from "@/components/MoodTracker";
 import SleepLogger from "@/components/SleepLogger";
 import SocialMediaIntegration from "@/components/SocialMediaIntegration";
 import UserGuidance from "@/components/UserGuidance";
+import StatisticalAnalysis from "@/components/StatisticalAnalysis";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -41,15 +42,121 @@ const Dashboard = () => {
 
   // Mock data for demonstration
   const [moodData, setMoodData] = useState([
-    { date: "2024-01-15", mood: 7, notes: "Feeling quite positive today" },
-    { date: "2024-01-14", mood: 5, notes: "Average day, some stress at work" },
-    { date: "2024-01-13", mood: 8, notes: "Great day with family" },
+    {
+      date: "2024-01-15",
+      mood: 7,
+      energy: 6,
+      anxiety: 4,
+      social: 7,
+      notes: "Feeling quite positive today",
+    },
+    {
+      date: "2024-01-14",
+      mood: 5,
+      energy: 4,
+      anxiety: 6,
+      social: 5,
+      notes: "Average day, some stress at work",
+    },
+    {
+      date: "2024-01-13",
+      mood: 8,
+      energy: 8,
+      anxiety: 2,
+      social: 9,
+      notes: "Great day with family",
+    },
+    {
+      date: "2024-01-12",
+      mood: 6,
+      energy: 5,
+      anxiety: 5,
+      social: 6,
+      notes: "Regular day, feeling okay",
+    },
+    {
+      date: "2024-01-11",
+      mood: 4,
+      energy: 3,
+      anxiety: 8,
+      social: 3,
+      notes: "Challenging day at work",
+    },
+    {
+      date: "2024-01-10",
+      mood: 7,
+      energy: 7,
+      anxiety: 3,
+      social: 8,
+      notes: "Good day with friends",
+    },
+    {
+      date: "2024-01-09",
+      mood: 5,
+      energy: 6,
+      anxiety: 5,
+      social: 4,
+      notes: "Quiet day at home",
+    },
   ]);
 
   const [sleepData, setSleepData] = useState([
-    { date: "2024-01-15", hours: 7.5, quality: "Good" },
-    { date: "2024-01-14", hours: 6, quality: "Poor" },
-    { date: "2024-01-13", hours: 8, quality: "Excellent" },
+    {
+      date: "2024-01-15",
+      hours: 7.5,
+      quality: "Good",
+      bedtime: "22:30",
+      wakeTime: "06:00",
+      notes: "Slept well, felt rested",
+    },
+    {
+      date: "2024-01-14",
+      hours: 6,
+      quality: "Poor",
+      bedtime: "23:45",
+      wakeTime: "05:45",
+      notes: "Restless night, work stress",
+    },
+    {
+      date: "2024-01-13",
+      hours: 8,
+      quality: "Excellent",
+      bedtime: "22:00",
+      wakeTime: "06:00",
+      notes: "Perfect sleep after family time",
+    },
+    {
+      date: "2024-01-12",
+      hours: 7,
+      quality: "Good",
+      bedtime: "22:15",
+      wakeTime: "05:15",
+      notes: "Normal sleep pattern",
+    },
+    {
+      date: "2024-01-11",
+      hours: 5.5,
+      quality: "Poor",
+      bedtime: "00:30",
+      wakeTime: "06:00",
+      notes: "Late night, feeling tired",
+    },
+    {
+      date: "2024-01-10",
+      hours: 8.5,
+      quality: "Excellent",
+      bedtime: "21:30",
+      wakeTime: "06:00",
+      notes: "Early bed, perfect rest",
+    },
+    {
+      date: "2024-01-09",
+      hours: 7.2,
+      quality: "Fair",
+      bedtime: "22:20",
+      wakeTime: "05:32",
+      notes: "Decent sleep, some dreams",
+    },
   ]);
 
   const sidebarItems = [
@@ -445,19 +552,49 @@ const Dashboard = () => {
             </div>
           )}
 
-          {/* Other tabs content would be similar with appropriate components */}
           {activeTab === "analytics" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h2 className="text-3xl font-bold text-gray-900">
+                  Advanced Analytics
+                </h2>
+                <Badge className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                  AI-Powered Insights
+                </Badge>
+              </div>
+              <StatisticalAnalysis moodData={moodData} sleepData={sleepData} />
+            </div>
+          )}
+
+          {activeTab === "activity" && (
             <Card className="bg-white/80 backdrop-blur-md border border-blue-100">
               <CardHeader>
-                <CardTitle>Mental Health Analytics</CardTitle>
+                <CardTitle>Activity Log</CardTitle>
                 <CardDescription>
-                  Comprehensive insights into your wellbeing patterns
+                  Track your daily activities and their impact on wellbeing
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-center text-gray-600 py-8">
-                  Advanced analytics dashboard coming soon! Track trends,
-                  patterns, and insights about your mental health journey.
+                  Activity tracking features coming soon! Monitor exercise,
+                  social activities, and their correlation with mental health.
+                </p>
+              </CardContent>
+            </Card>
+          )}
+
+          {activeTab === "settings" && (
+            <Card className="bg-white/80 backdrop-blur-md border border-blue-100">
+              <CardHeader>
+                <CardTitle>Settings</CardTitle>
+                <CardDescription>
+                  Personalise your MannChitra experience
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-center text-gray-600 py-8">
+                  Settings panel coming soon! Customise notifications, goals,
+                  and privacy preferences.
                 </p>
               </CardContent>
             </Card>
