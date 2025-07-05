@@ -2,11 +2,11 @@
 
 ## Project info
 
-## Authors:
-# Akash M
-# Tanish T
-# Shubh P
-# Siddharth J
+# Authors:
+## Akash M
+## Tanish T
+## Shubh P
+## Siddharth J
 
 ## How can I edit this code?
 
